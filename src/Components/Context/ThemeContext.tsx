@@ -5,22 +5,19 @@ type ThemeContextType = {
   toggleTheme: () => void;
 };
 
-const ThemeContext = createContext<ThemeContextType | undefined>(undefined);
+const ThemeContext = createContext<ThemeContextType>({
+  darkTheme: false,
+  toggleTheme: () => {},
+});
 
 export const ThemeProvider: React.FC<{ children: React.ReactNode }> = ({
   children,
 }) => {
-  const [darkTheme, setDarkTheme] = useState(
-    () => window.matchMedia?.("(prefers-color-scheme: dark)").matches
-  );
+  const [darkTheme, setDarkTheme] = useState(false);
 
   const toggleTheme = () => {
     setDarkTheme((prev) => !prev);
   };
-
-  useEffect(() => {
-    document.body.className = darkTheme ? "dark" : "light";
-  }, [darkTheme]);
 
   return (
     <ThemeContext.Provider value={{ darkTheme, toggleTheme }}>
