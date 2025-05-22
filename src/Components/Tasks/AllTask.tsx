@@ -8,7 +8,7 @@ const Home: React.FC = () => {
   const { darkTheme, toggleTheme } = useTheme();
 
   return (
-    <div className="app">
+    <div className={darkTheme ? "app dark" : "app light"}>
       <div className={darkTheme ? "main dark" : "main light"}>
         <div className="heading">
           <h2>Task Manager</h2>
