@@ -25,10 +25,8 @@ const saveTasksToLocalStorage = (tasks: Task[]) => {
 export const TaskProvider: React.FC<{ children: React.ReactNode }> = ({
   children,
 }) => {
-  const [tasks, setTasks] = useState<Task[]>(() => {
-    const stored = localStorage.getItem("tasks");
-    return stored ? JSON.parse(stored) : [];
-  });
+  const stored = localStorage.getItem("tasks");
+  const [tasks, setTasks] = useState<Task[]>(stored ? JSON.parse(stored) : []);
 
   useEffect(() => {
     saveTasksToLocalStorage(tasks);

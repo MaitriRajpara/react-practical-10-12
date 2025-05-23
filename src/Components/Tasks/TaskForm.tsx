@@ -6,6 +6,7 @@ import { useNavigate, useParams } from "react-router-dom";
 import type { FormValues } from "../Types/type";
 import { TaskStatus } from "../Types/type";
 import { useTheme } from "../Context/ThemeContext";
+import { FaSun, FaMoon } from "react-icons/fa"; // Using react-icons for toggle icons
 import { useTasks } from "../Context/TaskProvider";
 import "./taskform.css";
 
@@ -21,7 +22,8 @@ const schema = yup.object().shape({
 });
 
 const TaskForm = () => {
-  const { darkTheme } = useTheme();
+  // const { darkTheme } = useTheme();
+  const { darkTheme, toggleTheme } = useTheme();
   const { tasks, setTasks } = useTasks();
   const navigate = useNavigate();
   const { editId } = useParams<{ editId?: string }>();
@@ -63,6 +65,13 @@ const TaskForm = () => {
   return (
     <div className={`task-form ${darkTheme ? "dark" : "light"}`}>
       <div className="task-box">
+        <button
+          onClick={toggleTheme}
+          className="theme-toggle-btn"
+          aria-label="Toggle theme"
+        >
+          {darkTheme ? <FaSun /> : <FaMoon />}
+        </button>
         <h2>{editId ? "Edit Task" : "Add Task"}</h2>
         <form onSubmit={handleSubmit(onSubmit)}>
           <input
