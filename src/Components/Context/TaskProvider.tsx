@@ -1,5 +1,5 @@
 import { createContext, useState, useEffect, useContext } from "react";
-import type { Task } from "../Types/type";
+import type { Task } from "../../Types/type";
 
 interface TaskContextProps {
   tasks: Task[];

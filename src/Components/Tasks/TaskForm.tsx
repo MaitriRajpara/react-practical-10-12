@@ -3,8 +3,8 @@ import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
 import { useNavigate, useParams } from "react-router-dom";
-import type { FormValues } from "../Types/type";
-import { TaskStatus } from "../Types/type";
+import type { FormValues } from "../../Types/type";
+import { TaskStatus } from "../../Types/type";
 import { useTheme } from "../Context/ThemeContext";
 import { FaSun, FaMoon } from "react-icons/fa"; // Using react-icons for toggle icons
 import { useTasks } from "../Context/TaskProvider";

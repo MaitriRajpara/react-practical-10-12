@@ -4,8 +4,8 @@ import { useForm } from "react-hook-form";
 import type { FilterFormInputs } from "./FilterBar";
 import { useTasks } from "../Context/TaskProvider";
 import FilterBar from "./FilterBar";
-import type { Task } from "../Types/type";
-import { TaskStatus } from "../Types/type";
+import type { Task } from "../../Types/type";
+import { TaskStatus } from "../../Types/type";
 
 const TaskList: React.FC = () => {
   const { tasks, setTasks } = useTasks();
